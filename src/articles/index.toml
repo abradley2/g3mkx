@@ -1,0 +1,32 @@
+# INTRODUCTION
+[[Introduction]]
+title = "Welkome"
+article = "Welkome.md"
+
+# BASICS
+[[Basics]]
+title = "Input System"
+article = "InputSystem.md"
+
+[[Basics]]
+title = "Movement"
+article = "Movement.md"
+
+# INTERMEDIATE
+[[Intermediate]]
+title = "Frame Data"
+article = "FrameData.md"
+
+# ADVANCED
+[[Advanced]]
+title = "Mind Games"
+article = "MindGames.md"
+
+# CHARACTERS
+[[Characters]]
+title = "Sonya"
+article = "Sonya.md"
+
+[[Characters]]
+title = "Johnny Cage"
+article = "JohnnyCage.md"
