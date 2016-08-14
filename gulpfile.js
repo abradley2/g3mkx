@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     wrap = require('gulp-wrap'),
     gutil = require('gulp-util'),
-    stylus = require('gulp-stylus')
+    stylus = require('gulp-stylus'),
+    minifyify = require('minifyify')
 
 // CONFIGURATION
 var scripts = {
@@ -40,7 +41,8 @@ gulp.task('watch-articles', ['compile-articles'], function () {
 })
 
 gulp.task('build-scripts', function () {
-    var b = browserify([scripts.entry])
+    var b = browserify(scripts.entry, {debug: true})
+        .plugin(minifyify, {output: scripts.outputDir + '/main.js.map'})
         .transform(stringify, {
             appliesTo: { includeExtensions: ['.md', '.html', '.toml', '.json'] }
         })

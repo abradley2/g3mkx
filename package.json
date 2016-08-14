@@ -34,6 +34,7 @@
     "gulp-stylus": "^2.5.0",
     "gulp-util": "^3.0.7",
     "gulp-wrap": "^0.13.0",
+    "minifyify": "^7.3.3",
     "stringify": "^5.1.0",
     "stylus": "^0.54.5",
     "vinyl-source-stream": "^1.1.0",
