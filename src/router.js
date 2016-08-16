@@ -5,24 +5,32 @@ var viewMediator = new BackboneViewMediator({
     el: '#app',
     layout: require('./layout.html'),
     views: {
+        'NavbarView': require('./views/Navbar/NavbarView'),
         'HomeView': require('./views/Home/HomeView'),
-        'AboutView': require('./views/About/AboutView')
+        'ArticleView': require('./views/Article/ArticleView')
     }
 })
 
-const Router = Backbone.Router.extend({
+var Router = Backbone.Router.extend({
     routes: {
-        '': 'HomeRoute',
-        'about': 'AboutRoute'
+        ''                          : 'HomeRoute',
+        'article/:category/:name'   : 'ArticleRoute'
     },
     HomeRoute: function () {
         viewMediator.render({
+            'NavbarView': '#navbar-region',
             'HomeView': '#main-region'
         })
     },
-    AboutRoute: function () {
+    ArticleRoute: function (category, name) {
         viewMediator.render({
-            'AboutView': '#main-region'
+            'NavbarView': '#navbar-region',
+            'ArticleView': {
+                el: '#main-region',
+                params: {
+                    articleId: category + '-' + name
+                }
+            } 
         })
     }
 })

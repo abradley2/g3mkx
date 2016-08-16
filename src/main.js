@@ -4,7 +4,7 @@ var $ = require('jquery'),
     router = require('./router')
 
 $(document).ready(function () {
-    Backbone.history.start({pushState: true, root: '/'})
+    Backbone.history.start()
 })
 
 $(document).on("click", "a[href][data-link]", function (evt) {

@@ -23,7 +23,6 @@
     "backbone-view-mediator": "^2.1.0",
     "handlebars": "^4.0.5",
     "jquery": "^3.1.0",
-    "toml": "^2.3.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

@@ -1,0 +1,49 @@
+{
+    "title": "Git Gud Guide to MKX",
+    "categories": [
+        {
+            "title": "Home",
+            "directory": "Home",
+            "articles": [
+                {
+                    "name": "Home",
+                    "file": "Home.md"
+                }
+            ]
+        },
+        {
+            "title": "Basic",
+            "directory": "Basic",
+            "articles": [
+                {
+                    "name": "Input System", 
+                    "file": "InputSystem.md"
+                },
+                {
+                    "name": "Movement",
+                    "file": "Movement.md"
+                }
+            ]
+        },
+        {
+            "title": "Intermediate",
+            "directory": "Intermediate",
+            "articles": [
+                {
+                    "name": "Frame Data",
+                    "file": "FrameData.md"
+                }
+            ]
+        },
+        {
+            "title": "Advanced",
+            "directory": "Advanced",
+            "articles": [
+                {
+                    "name": "Mind Games",
+                    "file": "MindGames.md"
+                }
+            ]
+        }
+    ]
+}

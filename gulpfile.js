@@ -18,19 +18,23 @@ var scripts = {
 }
 
 gulp.task('build-styles', function () {
-    gulp.src(['./src/styles/main.styl'])
+    return gulp.src(['./src/styles/main.styl'])
         .pipe(stylus())
         .pipe(gulp.dest('./public/dist/css'))
 })
 
 gulp.task('watch-styles', ['build-styles'], function () {
-    gulp.watch(['./src/styles/**/*'], ['build-styles'])
+    return gulp.watch(['./src/styles/**/*'], ['build-styles'])
 })
 
 gulp.task('compile-articles', function () {
-    gulp.src(['./src/articles/**/*.md'])
+    return gulp.src(['./src/articles/**/*.md'])
         .pipe(markdown())
-        .pipe(wrap("<template id='<%= file.relative.replace(/\.html$/, '') %>'><%= contents %></template>"))
+        .pipe(wrap("<template id='<%= setArticleId(file) %>'><%= contents %></template>", {
+            setArticleId: function (file) {
+                return file.relative.replace(/\.html$/, '').split(/[\/\\]+/).join('-')
+            }
+        }))
         .pipe(concat('index.html'))
         .pipe(wrap({src: './template.html'}))
         .pipe(gulp.dest('./'))
@@ -41,7 +45,7 @@ gulp.task('watch-articles', ['compile-articles'], function () {
 })
 
 gulp.task('build-scripts', function () {
-    var b = browserify(scripts.entry, {debug: true})
+    return browserify(scripts.entry, {debug: true})
         .plugin(minifyify, {output: scripts.outputDir + '/main.js.map'})
         .transform(stringify, {
             appliesTo: { includeExtensions: ['.md', '.html', '.toml', '.json'] }
