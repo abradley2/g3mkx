@@ -30,9 +30,9 @@ gulp.task('watch-styles', ['build-styles'], function () {
 gulp.task('compile-articles', function () {
     return gulp.src(['./src/articles/**/*.md'])
         .pipe(markdown())
-        .pipe(wrap("<template id='<%= setArticleId(file) %>'><%= contents %></template>", {
+        .pipe(wrap("<template data-article-id='<%= setArticleId(file) %>'><%= contents %></template>", {
             setArticleId: function (file) {
-                return file.relative.replace(/\.html$/, '').split(/[\/\\]+/).join('-')
+                return file.relative.replace(/\.\w+$/, '').split('\\').join('/')
             }
         }))
         .pipe(concat('index.html'))

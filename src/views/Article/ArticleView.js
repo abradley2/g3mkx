@@ -9,7 +9,7 @@ var ArticleView = Backbone.View.extend({
     template: hbs.compile(template),
 
     setArticle: function (articleId) {
-        this.article = this.$('#' + articleId).html()
+        this.article = document.querySelector( "[data-article-id='" + articleId + "']").innerHTML
     },
 
     initialize: function (params) {

@@ -1,48 +1,36 @@
 {
-    "title": "Git Gud Guide to MKX",
-    "categories": [
+    "index": [
+        "Home.md",
         {
-            "title": "Home",
-            "directory": "Home",
+            "name": "Basics",
             "articles": [
-                {
-                    "name": "Home",
-                    "file": "Home.md"
-                }
+                "Input_System.md",
+                "Movement.md"
             ]
         },
         {
-            "title": "Basic",
-            "directory": "Basic",
-            "articles": [
+            "name": "Intermediate",
+            "categories": [
                 {
-                    "name": "Input System", 
-                    "file": "InputSystem.md"
+                    "name": "Offense",
+                    "articles": [
+                        "Kombo_Theory.md",
+                        "Running.md"
+                    ]
                 },
                 {
-                    "name": "Movement",
-                    "file": "Movement.md"
+                    "name": "Defense",
+                    "articles": [
+                        "Armor_and_Wakeups.md",
+                        "Backdash_and_Punishing.md"
+                    ]
                 }
             ]
         },
         {
-            "title": "Intermediate",
-            "directory": "Intermediate",
+            "name": "Advanced",
             "articles": [
-                {
-                    "name": "Frame Data",
-                    "file": "FrameData.md"
-                }
-            ]
-        },
-        {
-            "title": "Advanced",
-            "directory": "Advanced",
-            "articles": [
-                {
-                    "name": "Mind Games",
-                    "file": "MindGames.md"
-                }
+                "Mind_Games.md"
             ]
         }
     ]

@@ -13,8 +13,10 @@ var viewMediator = new BackboneViewMediator({
 
 var Router = Backbone.Router.extend({
     routes: {
-        ''                          : 'HomeRoute',
-        'article/:category/:name'   : 'ArticleRoute'
+        ''                                      : 'HomeRoute',
+        'article/:name'                         : 'ArticleRoute',
+        'article/:category/:name'               : 'ArticleRoute',
+        'article/:category/:subcategory/:name'  : 'ArticleRoute'
     },
     HomeRoute: function () {
         viewMediator.render({
@@ -22,13 +24,17 @@ var Router = Backbone.Router.extend({
             'HomeView': '#main-region'
         })
     },
-    ArticleRoute: function (category, name) {
+    ArticleRoute: function () {
+        var articleId = Array.prototype.slice.call(arguments).filter(function (arg) {
+            return arg
+        }).join('/')
+
         viewMediator.render({
             'NavbarView': '#navbar-region',
             'ArticleView': {
                 el: '#main-region',
                 params: {
-                    articleId: category + '-' + name
+                    articleId: articleId
                 }
             } 
         })

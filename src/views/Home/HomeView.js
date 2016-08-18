@@ -9,17 +9,20 @@ var index = JSON.parse(
 )
 
 function getFirstArticleId (group, _id) {
-    if (arguments.length === 0) group = index.categories
-
-    if (Array.isArray(group)) {
-        return getFirstArticleId(group[0], _id)
+    if (arguments.length === 0) {
+        group = index.index
+    }
+    if (typeof group === 'string') {
+        return (_id ? (_id + '/') : '') + group.replace(/\.\w+$/, '')
     } else {
-        if (group.articles) {
-            _id = _id ? (_id + '-' + group.directory) : group.directory
+        if (Array.isArray(group)) {
+            return getFirstArticleId(group[0], _id)
+        } else if (group.categories) {
+            _id = _id ? (_id + '/' + group.name) : group.name
+            return getFirstArticleId(group.categories[0], _id)
+        } else if (group.articles) {
+            _id = _id ? (_id + '/' + group.name) : group.name
             return getFirstArticleId(group.articles[0], _id)
-        } else {
-            _id = _id + '-' + group.file.replace(/\.md/ig, '')
-            return _id
         }
     }
 }
@@ -29,7 +32,8 @@ var HomeView = Backbone.View.extend({
     template: hbs.compile(template),
 
     initialize: function () {
-        this.article = $('#' + getFirstArticleId()).html()
+        console.log(getFirstArticleId())
+        this.article = document.querySelector( "[data-article-id='" + getFirstArticleId() + "']").innerHTML
     },
 
     render: function () {

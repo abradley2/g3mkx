@@ -1,1 +1,0 @@
-# The Git Gud Guide to Mortal Kombat X
