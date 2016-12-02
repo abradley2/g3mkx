@@ -8,3 +8,4 @@ and skills that are inconsequential outside of video games.
 
 Fighting games are really like a game of chess played at hypser-speed. Every move
 is a tactical choice
+
